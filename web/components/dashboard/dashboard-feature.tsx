@@ -1,39 +1,38 @@
-'use client';
+import Image from 'next/image';
 
-import { AppHero } from '../ui/ui-layout';
-
-const links: { label: string; href: string }[] = [
-  { label: 'Solana Docs', href: 'https://docs.solana.com/' },
-  { label: 'Solana Faucet', href: 'https://faucet.solana.com/' },
-  { label: 'Solana Cookbook', href: 'https://solanacookbook.com/' },
-  { label: 'Solana Stack Overflow', href: 'https://solana.stackexchange.com/' },
-  {
-    label: 'Solana Developers GitHub',
-    href: 'https://github.com/solana-developers/',
-  },
-];
-
-export default function DashboardFeature() {
+export default function Home() {
   return (
-    <div>
-      <AppHero title="gm" subtitle="Say hi to your new Solana dApp." />
-      <div className="max-w-xl mx-auto py-6 sm:px-6 lg:px-8 text-center">
-        <div className="space-y-2">
-          <p>Here are some helpful links to get you started.</p>
-          {links.map((link, index) => (
-            <div key={index}>
-              <a
-                href={link.href}
-                className="link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {link.label}
-              </a>
-            </div>
-          ))}
-        </div>
+    <main className="relative w-full h-screen bg-[#181716] overflow-hidden">
+      {/* Background grid */}
+      <div className="absolute inset-0 grid grid-cols-16 grid-rows-7">
+        {[...Array(16)].map((_, i) => (
+          <div key={`col-${i}`} className="border-l border-white border-opacity-5" />
+        ))}
+        {[...Array(7)].map((_, i) => (
+          <div key={`row-${i}`} className="border-t border-white border-opacity-5" />
+        ))}
       </div>
-    </div>
+
+      {/* Green glow effect */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[1157px] h-[207px] bg-[#2FFF2B] bg-opacity-25 blur-[100px] rounded-full" />
+
+      {/* Top logo */}
+      <div className="absolute top-[30px] left-1/2 transform -translate-x-1/2 w-[403px] h-[52px]">
+        <Image src="/logo.png" alt="Logo" layout="fill" objectFit="contain" />
+      </div>
+
+      {/* Main content box */}
+      <div className="absolute top-[142px] left-1/2 transform -translate-x-1/2 w-[436px] h-[107px] bg-gradient-to-br from-[#002D00] to-[#009300] bg-opacity-50 border border-[#2A342A] rounded-t-lg rounded-br-lg">
+        {/* Content goes here */}
+      </div>
+
+      {/* Bottom icons */}
+      <div className="absolute bottom-[30px] left-1/2 transform -translate-x-1/2 flex space-x-5 opacity-50">
+        <Image src="/icon1.png" alt="Icon 1" width={30} height={30} />
+        <Image src="/icon2.png" alt="Icon 2" width={30} height={30} />
+      </div>
+
+      {/* Other elements can be added here */}
+    </main>
   );
 }
