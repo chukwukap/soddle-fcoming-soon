@@ -45,7 +45,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${wremena.variable}  font-wremena bg-[#181716] `}>
+      <body className={`${wremena.variable}  font-wremena bg-[#181716] overflow-hidden `}>
 
         {/* Green glow effect at the top */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[167px] bg-[#2FFF2B] bg-opacity-25 blur-[100px] rounded-full" />

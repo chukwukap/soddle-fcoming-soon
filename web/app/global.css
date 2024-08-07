@@ -6,7 +6,9 @@ html,
 body {
   height: 100%;
 }
-
+/* *, *::before, *::after{
+  border: 5px solid white ;
+} */
 .wallet-adapter-button-trigger {
   background: rgb(100, 26, 230) !important;
   border-radius: 8px !important;
