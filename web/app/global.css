@@ -17,3 +17,8 @@ body {
 .wallet-adapter-button {
   font-family: inherit !important;
 }
+
+.custom-gradient {
+  background: linear-gradient(103.99deg, #002D00
+  60.64%, #034503 150.47%);
+}
