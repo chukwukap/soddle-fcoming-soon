@@ -4,17 +4,10 @@ import { WalletButton } from '../solana/solana-provider';
 import * as React from 'react';
 import { ReactNode, Suspense, useEffect, useRef } from 'react';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { AccountChecker } from '../account/account-ui';
-import {
-  ClusterChecker,
-  ClusterUiSelect,
-  ExplorerLink,
-} from '../cluster/cluster-ui';
+import { ExplorerLink } from '../cluster/cluster-ui';
 import toast, { Toaster } from 'react-hot-toast';
-
 
 const gridSvg = `
 <svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'>
@@ -23,8 +16,6 @@ const gridSvg = `
 `;
 const encodedGridSvg = encodeURIComponent(gridSvg);
 
-
-
 export function UiLayout({
   children,
   links,
@@ -32,13 +23,19 @@ export function UiLayout({
   children: ReactNode;
   links: { label: string; path: string }[];
 }) {
-  const pathname = usePathname();
-
   return (
-    <div className="h-full flex flex-col" style={{ backgroundImage: `url("data:image/svg+xml,${encodedGridSvg}")`,
-            backgroundSize: '70px 100px'
-          }}>
-     
+    <div
+      className="flex flex-col font-wremena bg-[#181716] min-h-screen border"
+      style={{
+        backgroundImage: `url("data:image/svg+xml,${encodedGridSvg}")`,
+        backgroundSize: '70px 100px',
+      }}
+    >
+      {/* Green glow effect at the top */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[167px] bg-[#2FFF2B] bg-opacity-25 blur-[100px] rounded-full" />
+
+      {/* Green glow effect at the bottom */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[167px] bg-[#2FFF2B] bg-opacity-25 blur-[100px] rounded-full" />
       <div className="flex-grow mx-4 lg:mx-auto">
         <Suspense
           fallback={
@@ -51,7 +48,6 @@ export function UiLayout({
         </Suspense>
         <Toaster position="bottom-right" />
       </div>
-
     </div>
   );
 }
