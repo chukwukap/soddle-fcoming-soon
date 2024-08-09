@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function AccountDetails() {
   return (
     <div
-      className="custom-gradient p-4 grid gap-5 border-[#03B500] border  "
+      className="custom-gradient p-5 grid gap-5 border-[#03B500] border  "
       style={{
         clipPath: 'polygon(5% 0%, 100% 0, 100% 80%, 95% 100%, 0 100%, 0 20%)',
       }}

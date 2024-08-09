@@ -51,7 +51,11 @@ const formatTime = (input: TimeInput): TimeObject => {
 
 const GlowingTime: React.FC<TimeProps> = memo(({ time }) => {
   const { hours, minutes, seconds } = formatTime(time);
-  const glowingStyle = 'text-white drop-shadow-[0_0_10px_rgba(47,255,43,1)]';
+  const glowingStyle = `
+    text-white 
+    drop-shadow-[0_0_25px_rgba(47,255,43,1)] 
+    text-shadow-[0_0_20px_rgba(47,255,43,1),0_0_35px_rgba(47,255,43,0.8),0_0_50px_rgba(47,255,43,0.6)]
+  `;
   const separatorStyle = `${glowingStyle} opacity-75`;
 
   return (
