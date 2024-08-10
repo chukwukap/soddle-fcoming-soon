@@ -3,8 +3,8 @@ import React from 'react';
 
 function page() {
   return (
-    <div className="min-h-[80vh]  item-center content-center grid">
-      <UtilityButton text="Connect Wallet" />
+    <div className="min-h-[80vh]  grid place-content-center">
+      <UtilityButton className="max-w-xs">Connect Wallet</UtilityButton>
     </div>
   );
 }

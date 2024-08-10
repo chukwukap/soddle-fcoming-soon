@@ -22,6 +22,35 @@ body {
 }
 
 .custom-gradient {
-  background: linear-gradient(103.99deg, #002D00
-  60.64%, #034503 150.47%);
+  background: linear-gradient(103.99deg, #002d00 60.64%, #034503 150.47%);
+}
+
+.button-shadow-wrapper {
+  position: relative;
+  display: inline-block;
+  /* border: 2px solid #03b500; */
+  background-color: transparent;
+}
+
+.button-shadow-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: #03b500;
+  z-index: -1;
+  clip-path: polygon(12% 0, 100% 0, 100% 77%, 86% 100%, 0 100%, 0 25%);
+}
+
+.button-shadow-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+}
+
+.button-shadow-wrapper:hover::after {
+  box-shadow: 0 0 20px 5px rgba(47, 255, 43, 0.5);
+  background-color: transparent;
 }

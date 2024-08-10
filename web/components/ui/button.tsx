@@ -1,45 +1,45 @@
-import React from 'react';
+import React, { ReactNode, ButtonHTMLAttributes } from 'react';
 
-interface UtilityButtonProps {
-  text: string;
-  onClick?: () => void;
+interface UtilityButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
 }
 
-const UtilityButton: React.FC<UtilityButtonProps> = ({ text, onClick }) => {
+const UtilityButton: React.FC<UtilityButtonProps> = ({
+  children,
+  className = '',
+  onClick,
+  ...props
+}) => {
+  const clipPath = 'polygon(12% 0, 100% 0, 100% 77%, 86% 100%, 0 100%, 0 25%)';
+
   return (
-    <button
-      onClick={onClick}
-      className="
-        relative w-full max-w-[586px] h-[60px] sm:h-[70px] md:h-[80px]
-        bg-[#2D2D2D]
-        text-white text-opacity-80 
-        focus:outline-none
-        overflow-hidden
-        transition-all duration-300 ease-in-out
-        hover:brightness-110 active:brightness-90
-      "
-      style={{
-        clipPath: 'polygon(12% 0, 100% 0, 100% 77%, 86% 100%, 0 100%, 0 25%)'
-      }}
-    >
-      <div 
-        className="
-          absolute inset-[1px]
-          bg-[#002D00] bg-opacity-50
-        "
-        style={{
-          clipPath: 'polygon(12% 0, 100% 0, 100% 77%, 86% 100%, 0 100%, 0 25%)'
-        }}
-      />
-   
-      <span className="
-        absolute inset-0 flex items-center justify-center
-        font-sans text-sm sm:text-base md:text-lg 
-        z-10
-      ">
-        {text}
-      </span>
-    </button>
+    <div className={`button-shadow-wrapper ${className}`}>
+      <button
+        className={`
+          relative
+          inline-block
+          px-6 py-3
+          bg-[#2D2D2D]
+          text-white text-opacity-80 
+          font-sans text-sm sm:text-base md:text-lg
+          focus:outline-none
+          transition-all duration-300 ease-in-out
+          hover:brightness-110 active:brightness-90
+          w-full
+        `}
+        style={{ clipPath }}
+        {...props}
+      >
+        {/* Background layer */}
+        <div
+          className="absolute inset-0 bg-[#002D00] bg-opacity-50 -z-10"
+          style={{ clipPath }}
+        />
+
+        {/* Content */}
+        <span className="relative z-10">{children}</span>
+      </button>
+    </div>
   );
 };
 
