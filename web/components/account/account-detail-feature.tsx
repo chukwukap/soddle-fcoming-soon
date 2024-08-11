@@ -6,7 +6,7 @@ import { useMemo } from 'react';
 import { useParams } from 'next/navigation';
 
 import { ExplorerLink } from '../cluster/cluster-ui';
-import { AppHero, ellipsify } from '../layout/ui-layout';
+import { AppHero, ellipsify } from '../layout/main';
 import {
   AccountBalance,
   AccountButtons,

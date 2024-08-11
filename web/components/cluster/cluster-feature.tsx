@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { AppHero } from '../layout/ui-layout';
+import { AppHero } from '../layout/main';
 import { ClusterUiModal } from './cluster-ui';
 import { ClusterUiTable } from './cluster-ui';
 

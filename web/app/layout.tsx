@@ -1,9 +1,7 @@
 import './global.css';
-import { UiLayout } from '@/components/layout/ui-layout';
-import { ClusterProvider } from '@/components/cluster/cluster-data-access';
-import { SolanaProvider } from '@/components/solana/solana-provider';
-import { ReactQueryProvider } from './react-query-provider';
+import { MainLayout } from '@/components/layout/main';
 import localFont from 'next/font/local';
+import Providers from '@/components/providers';
 
 const wremena = localFont({
   src: [
@@ -27,11 +25,6 @@ export const metadata = {
   description: 'Soddle game',
 };
 
-const links: { label: string; path: string }[] = [
-  { label: 'Account', path: '/account' },
-  { label: 'Clusters', path: '/clusters' },
-];
-
 export default function RootLayout({
   children,
 }: {
@@ -39,14 +32,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${wremena.variable}   `}>
-        <ReactQueryProvider>
-          <ClusterProvider>
-            <SolanaProvider>
-              <UiLayout links={links}>{children}</UiLayout>
-            </SolanaProvider>
-          </ClusterProvider>
-        </ReactQueryProvider>
+      <body className={`${wremena.variable} bg-[#181716]`}>
+        <Providers>
+          <MainLayout>{children}</MainLayout>
+        </Providers>
       </body>
     </html>
   );

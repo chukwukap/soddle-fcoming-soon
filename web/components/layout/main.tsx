@@ -15,12 +15,7 @@ const gridSvg = `
 `;
 const encodedGridSvg = encodeURIComponent(gridSvg);
 
-export function UiLayout({
-  children,
-}: {
-  children: ReactNode;
-  links: { label: string; path: string }[];
-}) {
+export function MainLayout({ children }: { children: ReactNode }) {
   return (
     <div className="relative flex flex-col font-wremena bg-[#181716] min-h-screen py-4 border">
       {/* Background with grid */}
@@ -40,7 +35,6 @@ export function UiLayout({
 
       {/* Content */}
       <div className="relative flex-grow mx-4 lg:mx-auto z-20">
-        <Header />
         <Suspense
           fallback={
             <div className="text-center my-32">
@@ -48,9 +42,12 @@ export function UiLayout({
             </div>
           }
         >
-          <div>{children}</div>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            {children}
+            <Footer />
+          </div>
         </Suspense>
-        <Footer />
         <Toaster position="bottom-right" />
       </div>
     </div>
@@ -111,56 +108,5 @@ export function AppModal({
   );
 }
 
-export function AppHero({
-  children,
-  title,
-  subtitle,
-}: {
-  children?: ReactNode;
-  title: ReactNode;
-  subtitle: ReactNode;
-}) {
-  return (
-    <div className="hero py-[64px]">
-      <div className="hero-content text-center">
-        <div className="max-w-2xl">
-          {typeof title === 'string' ? (
-            <h1 className="text-5xl font-bold">{title}</h1>
-          ) : (
-            title
-          )}
-          {typeof subtitle === 'string' ? (
-            <p className="py-6">{subtitle}</p>
-          ) : (
-            subtitle
-          )}
-          {children}
-        </div>
-      </div>
-    </div>
-  );
-}
 
-export function ellipsify(str = '', len = 4) {
-  if (str.length > 30) {
-    return (
-      str.substring(0, len) + '..' + str.substring(str.length - len, str.length)
-    );
-  }
-  return str;
-}
 
-export function useTransactionToast() {
-  return (signature: string) => {
-    toast.success(
-      <div className={'text-center'}>
-        <div className="text-lg">Transaction sent</div>
-        <ExplorerLink
-          path={`tx/${signature}`}
-          label={'View Transaction'}
-          className="btn btn-xs btn-primary"
-        />
-      </div>
-    );
-  };
-}
