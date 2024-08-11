@@ -7,7 +7,7 @@ const linkStyle =
 
 export default function MainPage() {
   return (
-    <div className="max-w-4x min-h-screen mx-auto py-10 flex flex-col gap-10 z-50">
+    <div className="max-w-4xl min-h-full mx-auto flex flex-col gap-10 z-50">
       <AccountDetails />
       <TimeSection />
       {/* attributes game */}

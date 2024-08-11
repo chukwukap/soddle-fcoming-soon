@@ -5,7 +5,7 @@ import { LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
 import { IconRefresh } from '@tabler/icons-react';
 import { useQueryClient } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
-import { AppModal, ellipsify } from '../layout/main';
+import { AppModal } from '../layout/main';
 import { useCluster } from '../cluster/cluster-data-access';
 import { ExplorerLink } from '../cluster/cluster-ui';
 import {
@@ -172,22 +172,12 @@ export function AccountTokens({ address }: { address: PublicKey }) {
                   <tr key={pubkey.toString()}>
                     <td>
                       <div className="flex space-x-2">
-                        <span className="font-mono">
-                          <ExplorerLink
-                            label={ellipsify(pubkey.toString())}
-                            path={`account/${pubkey.toString()}`}
-                          />
-                        </span>
+                        <span className="font-mono"></span>
                       </div>
                     </td>
                     <td>
                       <div className="flex space-x-2">
-                        <span className="font-mono">
-                          <ExplorerLink
-                            label={ellipsify(account.data.parsed.info.mint)}
-                            path={`account/${account.data.parsed.info.mint.toString()}`}
-                          />
-                        </span>
+                        <span className="font-mono"></span>
                       </div>
                     </td>
                     <td className="text-right">
@@ -267,12 +257,7 @@ export function AccountTransactions({ address }: { address: PublicKey }) {
               <tbody>
                 {items?.map((item) => (
                   <tr key={item.signature}>
-                    <th className="font-mono">
-                      <ExplorerLink
-                        path={`tx/${item.signature}`}
-                        label={ellipsify(item.signature, 8)}
-                      />
-                    </th>
+                    <th className="font-mono"></th>
                     <td className="font-mono text-right">
                       <ExplorerLink
                         path={`block/${item.slot}`}
