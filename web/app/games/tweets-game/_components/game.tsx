@@ -5,6 +5,8 @@ import ChallengeWrapper from '../../_components/challenge-wrapper';
 import TimerDisplay from '@/components/ui/time-display';
 import UserInput from '@/components/ui/input';
 import Button from '@/components/ui/button2';
+import Beveled from '@/components/ui/trapezoid';
+import BeveledRectangle from '@/components/ui/beveled-rectangle';
 
 interface Tweet {
   content: string;
@@ -59,7 +61,7 @@ const TweetsGame: React.FC<TweetsGameProps> = ({ kols, onGameComplete }) => {
   //   if (!currentTweet) return <div className="text-white">Loading...</div>;
 
   return (
-    <div className="  flex flex-col gap-5">
+    <BeveledRectangle className="  flex flex-col gap-5">
       <TimerDisplay />
       <ChallengeWrapper className="grid">
         <h2 className="text-2xl font-bold mb-4 text-center">
@@ -106,7 +108,7 @@ const TweetsGame: React.FC<TweetsGameProps> = ({ kols, onGameComplete }) => {
           </h3>
         </div>
       )}
-    </div>
+    </BeveledRectangle>
   );
 };
 

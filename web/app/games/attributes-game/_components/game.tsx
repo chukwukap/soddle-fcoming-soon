@@ -1,7 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import UserList from './user-list';
+import TimerDisplay from '@/components/ui/time-display';
+import BeveledRectangle from '@/components/ui/beveled-rectangle';
+import Trapezoid from '@/components/ui/trapezoid';
+import Input from '@/components/ui/input';
+import App from './legends';
+import Legend from './legends';
+import Container from '@/components/layout/container';
 
 interface KOL {
   name: string;
@@ -14,6 +21,12 @@ interface KOL {
 }
 
 const Game1: React.FC = () => {
+  const [isLegendVisible, setIsLegendVisible] = useState<boolean>(true);
+
+  const handleCloseLegend = (): void => {
+    setIsLegendVisible(true);
+  };
+
   const [selectedKOL, setSelectedKOL] = useState<string>('');
   const [correctKOL, setCorrectKOL] = useState<KOL | null>(null);
   const [guesses, setGuesses] = useState<string[]>([]);
@@ -42,66 +55,31 @@ const Game1: React.FC = () => {
   };
 
   return (
-    <main className="bg-[#181716] min-h-screen text-white p-8">
-      <section className="max-w-4xl mx-auto">
-        <div className="bg-[#111411] border border-[#2A342A] rounded-lg p-6 mb-8">
-          <h2 className="text-2xl font-bold mb-4">Game 1: Guess the KOL</h2>
-          <p className="mb-4">Submit KOLs until you find the correct one.</p>
+    <div className="  text-white flex flex-col gap-8 z-50">
+      <Container className=" flex justify-center">
+        <TimerDisplay />
+      </Container>
 
-          <form onSubmit={handleSubmit} className="mb-4">
-            <input
-              type="text"
-              value={selectedKOL}
-              onChange={(e) => setSelectedKOL(e.target.value)}
-              placeholder="Enter a personality..."
-              className="bg-[#111411] border border-[#2FFF2B80] text-white p-2 rounded w-full mb-2"
-            />
-            <button
-              type="submit"
-              className="bg-[#2FFF2B] text-black font-bold py-2 px-4 rounded"
-            >
-              Submit Guess
-            </button>
-          </form>
+      <Container className="">
+        <Trapezoid className="text-center text-2xl">
+          Guess today&apos;s personality!
+        </Trapezoid>
+      </Container>
+      <Container className="">
+        <Input placeholder="Enter a personality" className="bg-[#181716] " />
+      </Container>
 
-          {gameStatus === 'won' && (
-            <div className="text-[#2FFF2B] font-bold">
-              Congratulations! You guessed correctly!
-            </div>
-          )}
-
-          <div className="mt-4">
-            <h3 className="text-xl font-bold mb-2">Your Guesses:</h3>
-            <ul>
-              {guesses.map((guess, index) => (
-                <li key={index} className="mb-1">
-                  {guess}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Add the color-coded result boxes here */}
-        <div className="grid grid-cols-5 gap-4 mb-8">
-          <div className="bg-[#0DBF2E] border border-white/50 p-4 text-center">
-            Correct
-          </div>
-          <div className="bg-[#FFA500] border border-white/50 p-4 text-center">
-            Partially correct
-          </div>
-          <div className="bg-[#D21210] border border-white/50 p-4 text-center">
-            Wrong
-          </div>
-          <div className="bg-[#D21210] border border-white/50 p-4 text-center">
-            Higher
-          </div>
-          <div className="bg-[#D21210] border border-white/50 p-4 text-center">
-            Lower
-          </div>
-        </div>
-      </section>
-    </main>
+      <Container className="sm:max-w-[600px]  ">
+        <UserList />
+      </Container>
+      <Container className="">
+        {isLegendVisible && (
+          <Trapezoid className="text-center">
+            <Legend onClose={handleCloseLegend} />
+          </Trapezoid>
+        )}
+      </Container>
+    </div>
   );
 };
 

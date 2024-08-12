@@ -3,10 +3,10 @@
 import * as React from 'react';
 import { ReactNode, Suspense, useEffect, useRef } from 'react';
 
-import { ExplorerLink } from '../cluster/cluster-ui';
 import toast, { Toaster } from 'react-hot-toast';
 import Footer from './footer';
 import Header from './header';
+import Container from './container';
 
 const gridSvg = `
 <svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'>
@@ -17,7 +17,7 @@ const encodedGridSvg = encodeURIComponent(gridSvg);
 
 export function MainLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative flex flex-col font-wremena bg-[#181716] min-h-screen py-4 border">
+    <div className="relative flex flex-col font-wremena bg-[#181716] min-h-screen py-4 ">
       {/* Background with grid */}
       <div
         className="absolute inset-0 z-0"
@@ -34,7 +34,7 @@ export function MainLayout({ children }: { children: ReactNode }) {
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[167px] bg-[#2FFF2B] bg-opacity-25 blur-[100px] rounded-full z-10 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative flex-grow mx-4 lg:mx-auto z-20">
+      <div className="relative">
         <Suspense
           fallback={
             <div className="text-center my-32">
@@ -42,7 +42,7 @@ export function MainLayout({ children }: { children: ReactNode }) {
             </div>
           }
         >
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-full">
             <Header />
             {children}
             <Footer />
@@ -107,6 +107,3 @@ export function AppModal({
     </dialog>
   );
 }
-
-
-
