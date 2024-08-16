@@ -21,7 +21,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={`
-        relative w-full min-w-[100px] max-w-[300px] h-10
+        relative w-full min-w-[200px] max-w-[350px] h-10
         group transition-transform duration-200 ease-in-out
         hover:scale-105 focus:outline-none ${className}
       `}

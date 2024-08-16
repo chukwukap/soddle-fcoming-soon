@@ -8,7 +8,7 @@ import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 function page() {
   return (
     <div className="min-h-[70vh]  grid place-content-center">
-      <Button className="w-40" disabled>
+      <Button className="w-52" disabled>
         COMING SOON...
       </Button>
       {/* <WalletMultiButton /> */}
