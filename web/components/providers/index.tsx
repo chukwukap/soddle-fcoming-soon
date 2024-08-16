@@ -2,17 +2,17 @@
 
 import { ReactQueryProvider } from '@/components/providers/react-query-provider';
 import { ClusterProvider } from '@/components/cluster/cluster-data-access';
-import { SolanaProvider } from '@/components/providers/solana-provider';
-import { Provider } from 'jotai';
+import { SolanaProviders } from '@/components/providers/solana-providers';
+import { Provider as JotaiProvider } from 'jotai';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <Provider>
+    <JotaiProvider>
       <ReactQueryProvider>
         <ClusterProvider>
-          <SolanaProvider>{children}</SolanaProvider>
+          <SolanaProviders>{children}</SolanaProviders>
         </ClusterProvider>
       </ReactQueryProvider>
-    </Provider>
+    </JotaiProvider>
   );
 }

@@ -9,6 +9,7 @@ import Beveled from '@/components/ui/trapezoid';
 import BeveledRectangle from '@/components/ui/beveled-rectangle';
 import Container from '@/components/layout/container';
 import Image from 'next/image';
+import AutocompleteInput from '../../_components/auto-complete-input';
 
 interface Tweet {
   content: string;
@@ -80,11 +81,12 @@ const TweetsGame: React.FC<TweetsGameProps> = ({ kols, onGameComplete }) => {
       </Container>
 
       <Container>
-        <UserInput
+        {/* <UserInput
           placeholder="Enter a personality..."
           onChange={(e) => console.log(e.target.value)}
           className="bg-[#181716] placeholder-slate-600 "
-        />{' '}
+        />{' '} */}
+        <AutocompleteInput onSelect={(selection) => console.log(selection)} />
       </Container>
       <Container>
         <div className="space-y-4">
