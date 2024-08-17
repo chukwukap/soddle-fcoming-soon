@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     <footer className=" py-4">
       <div className="container mx-auto flex justify-center items-center space-x-6">
         <Link
-          href="https://twitter.com/soddle"
+          href="https://x.com/soddle_"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
           />
         </Link>
         <Link
-          href="https://t.me/soddle"
+          href="https://t.me/SoddleOfficial"
           target="_blank"
           rel="noopener noreferrer"
         >
