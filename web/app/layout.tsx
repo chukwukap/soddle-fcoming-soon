@@ -1,24 +1,7 @@
 import './global.css';
 import { MainLayout } from '@/components/layout/main';
-import localFont from 'next/font/local';
 import Providers from '@/components/providers';
-
-const wremena = localFont({
-  src: [
-    {
-      path: '../lib/fonts/Wremena-Regular.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../lib/fonts/Wremena-Bold.otf',
-      weight: '700',
-      style: 'normal',
-    },
-    // Add more variations as needed
-  ],
-  variable: '--font-wremena', // This creates a CSS variable
-});
+import { satoshi } from '@/lib/fonts';
 
 export const metadata = {
   title: 'Soddle',
@@ -31,8 +14,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${wremena.variable} bg-[#181716]`}>
+    <html lang="en" className={`${satoshi.variable} font-satoshi`}>
+      <body
+        className={`
+          bg-[#181716] 
+          bg-[url('/backgrounds/background_darkened_2.png')] 
+          bg-cover 
+          bg-center 
+          bg-fixed 
+          bg-no-repeat
+        `}
+      >
+        {' '}
         <Providers>
           <MainLayout>{children}</MainLayout>
         </Providers>
