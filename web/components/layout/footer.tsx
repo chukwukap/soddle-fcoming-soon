@@ -20,19 +20,6 @@ const Footer: React.FC = () => {
             className="hover:opacity-80 transition-opacity"
           />
         </Link>
-        <Link
-          href="https://t.me/SoddleOfficial"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            src="/images/telegram.png"
-            alt="Telegram"
-            width={24}
-            height={24}
-            className="hover:opacity-80 transition-opacity"
-          />
-        </Link>
       </div>
     </footer>
   );
