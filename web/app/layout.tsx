@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${satoshi.variable} font-satoshi`}>
-      <body className="bg-[url(/backgrounds/riddle_2_background.png)] relative min-h-screen">
+      <body className="bg-[url(/backgrounds/riddle_2_background.png)] bg-cover bg-fixed bg-norepeat relative min-h-screen">
         
         <Providers>
           <MainLayout>{children}</MainLayout>
