@@ -16,20 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${satoshi.variable} font-satoshi`}>
       <body className="bg-[url(/background/riddle_2_background.png)] relative min-h-screen">
-        <img
-          src="/backgrounds/riddle_2_background.png"
-          alt="Background"
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center',
-            zIndex: -1,
-          }}
-        />
+        
         <Providers>
           <MainLayout>{children}</MainLayout>
         </Providers>
