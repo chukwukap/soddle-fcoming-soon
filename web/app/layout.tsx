@@ -1,3 +1,4 @@
+here is the complete code:
 import './global.css';
 import { MainLayout } from '@/components/layout/main';
 import Providers from '@/components/providers';
@@ -15,8 +16,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${satoshi.variable} font-satoshi`}>
-      <body className="bg-[url(/backgrounds/riddle_2_background.png)] bg-cover bg-fixed bg-norepeat relative min-h-screen">
-        
+      <body
+        className={`
+          bg-[#181716] 
+          bg-[url('/backgrounds/riddle_2_background.png')] 
+          bg-cover 
+          bg-center 
+          bg-fixed 
+          bg-no-repeat
+        `}
+      >
+        {' '}
         <Providers>
           <MainLayout>{children}</MainLayout>
         </Providers>
