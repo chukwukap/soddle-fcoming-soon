@@ -1,4 +1,3 @@
-here is the complete code:
 import './global.css';
 import { MainLayout } from '@/components/layout/main';
 import Providers from '@/components/providers';
