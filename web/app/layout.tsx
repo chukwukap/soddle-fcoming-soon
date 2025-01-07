@@ -18,7 +18,7 @@ export default function RootLayout({
       <body
         className={`
           bg-[#181716] 
-          bg-[url('/backgrounds/riddle_2_background.png')] 
+          bg-[url('/backgrounds/eclipse_bg.jpg')] 
           bg-cover 
           bg-center 
           bg-fixed 
